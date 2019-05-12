@@ -1,0 +1,212 @@
+﻿{% if isTest == false%}﻿
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="apple-touch-icon" href="http://in.3level.ru/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="http://in.3level.ru/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="http://in.3level.ru/favicon.ico">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="tileicon.png">
+
+    <title>Тестирование - qa3wzsxdrcyftvygbhunijmok @ БАКАЛАВРЫ 3 КУРС - WEB</title>
+
+
+
+
+    <link href="http://in.3level.ru/themes/twiboostrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://in.3level.ru/themes/twiboostrap/css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="http://in.3level.ru/themes/twiboostrap/css/sticky-footer.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+﻿<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="index.html%3Fmodule=testing.html#">WEB</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+
+                </ul>
+                <p class="navbar-text pull-right"><span class="label">Qwertyuiop</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html%3Fmodule=testing.html#"><img src="http://in.3level.ru/themes/twiboostrap/img/logo.png" title="WEB Class" alt="Logo"></a>&nbsp;
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="index.html%3Fmodule=testing.html#" class="dropdown-toggle" data-toggle="dropdown">Тесты<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="index.html%3Fmodule=testing.html">
+                                <strong>                                                Тестирование                                                </strong>                                        </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html%3Fmodule=testing.html#" class="dropdown-toggle" data-toggle="dropdown">Аккаунт<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="http://in.3level.ru/?module=change_personal_settings">
+                                Персональные настройки                                                                                        </a></li>
+                        <li> <a href="http://in.3level.ru/?module=logout">
+                                Выход                                                                                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<ol class="breadcrumb text-right">
+    <li><span class="glyphicon glyphicon-user"></span>&nbsp;qa3wzsxdrcyftvygbhunijmok @ БАКАЛАВРЫ 3 КУРС</li>
+</ol>
+
+<div class="container-fluid">
+    <h1>Тестирование</h1>
+
+
+    <div class="alert alert-info">Поля, помеченные знаком <strong>*</strong>, обязательны для заполнения.</div>
+    <form action = "" method = "POST" name = "FORM"  role="form">
+
+        <fieldset class="well well-sm">
+
+
+            <div class="row-fluid">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">*Раздел</label>
+
+                        <select class="form-control justAjax" name = "section_id" id="section_id"
+                                required                     >
+                            <option value = "" SELECTED></option>
+                            <option value = "14" >3 курс</option>                                                                                                                    <option value = "1" >Автоматиз. АП</option>                                                                                                            </select>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">*Тест</label>
+
+                        <select class="form-control" name = "test_id" id="test_id"
+                                required                                                 >
+                            <option value = "" SELECTED></option>
+                        </select>
+                        &nbsp;<div id="test_id_description_item"></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div align="right">
+            <input type = "submit" class = "btn btn-primary" value = "Выбрать" name="submit_button">&nbsp;
+            <input type = "button" class = "btn btn-info" value = "Справка" onclick = "window.open('http://in.3level.ru/help/2070.html', 'mywindow')" name="help_button">
+        </div>
+        <div>&nbsp;</div>
+
+    </form>
+
+</div>
+
+
+<div id="footer">
+    <div class="container">
+        <p><SCRIPT
+                    LANGUAGE="JavaScript">
+                document.ondragstart = test;
+                document.onselectstart = test;
+                document.oncontextmenu = test;
+                function test() {
+                    return false
+                }
+            </SCRIPT>
+        <body oncontextmenu="return false" oncopy="return false;" oncontextmenu="return false" onselectstart="return false;">
+        <META HTTP-EQUIV=Cache-Control content=no-cache>
+        <body topmargin=5 leftmargin=5 rightmargin=5 bottommargin=5
+              oncontextmenu="return false" oncopy="return false" bgcolor=white
+              text=black>
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter34235890 = new Ya.Metrika({
+                            id:34235890,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true
+                        });
+                    } catch(e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/34235890" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter --></p>
+    </div>
+</div>
+
+
+
+
+<script src="http://in.3level.ru/java/main.js"></script>
+<script src="http://in.3level.ru/java/jquery.js" type="text/javascript" language="javascript"></script>
+
+<script src="http://in.3level.ru/java/get_test_description.js" type="text/javascript" language="javascript"></script>
+<script src="http://in.3level.ru/themes/twiboostrap/js/jquery.min.js"></script>
+<script src="http://in.3level.ru/themes/twiboostrap/js/bootstrap.min.js"></script>
+
+<script >
+
+    $('.justAjax').change(function(){
+
+        section = $('#section_id').val();
+
+        if(section == 14) data = '<option selected="" value=""></option><option value="6">-1. ОПТИМ. 1</option><option value="22">-2. ОПТИМ. 2</option><option value="23">-3. ОСНОВЫ ПР. ДЛЯ РУК. ПРИ П.Р.</option><option value="21">-4. ОРГ. ПОВЕДЕНИЕ РУК. ПРИ П.Р.</option><option value="20">-5. Анализ подп. для руков.</option><option value="26">Компьютерные сети</option>';
+
+        if(section == 1) data = '<option selected="" value=""></option><option value="28">Автоматизация архитектурного проектирования</option><option value="15">АРХИТЕКТУРА</option><option value="16">Архитектурные памятники</option><option value="19">Архитектурные стили</option><option value="18">СТРОИТЕЛЬНЫЕ КОНСТРУКЦИИ, ОБСЛЕДОВАНИЕ, СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ, ЭКСПЛУАТАЦИЯ ЗДАНИЙ</option><option value="1">ЭПЮРЫ</option>';
+
+        $('#test_id_description_item').html('');
+        $('#test_id').html(data);
+
+
+    });
+</script>
+</body>
+</html>
+{% endif %}

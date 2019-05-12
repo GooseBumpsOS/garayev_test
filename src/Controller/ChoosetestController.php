@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Services\RequestsToGarSite;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,21 +35,23 @@ class ChoosetestController extends AbstractController
 
                 ]);
 
-                echo $requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $dataAboutTestChoice);
+                $this->parseAndPrintHtml($requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $dataAboutTestChoice));
 
                 $isTest = true;
 
             } else {
 
+                $answerNumber = file_get_contents("http://gt.qpr0g.ru/get?questionId={$request->request->get('nextquestion')}&token=fPUnR2HU6jfVcfcGu93976A7pL4xa7cn");
+
                 $answer = http_build_query([
 
-                    'answer' => '3',
-                    'current_question' => '12111',
+                    'answer' => $answerNumber,
+                    'current_question' => $request->request->get('nextquestion'),
                     'submit_button' => 'Ответить',
 
                 ]);
 
-                echo $requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $answer);
+               $a = $this->parseAndPrintHtml($requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $answer));
 
                 $isTest = true;
             }
@@ -64,4 +67,26 @@ class ChoosetestController extends AbstractController
             'isTest' => $isTest
         ]);
     }
+
+    private function parseAndPrintHtml($html){
+
+        $crawler = new Crawler($html);
+
+        $output = $crawler->filter('form')->html();
+
+        preg_match('/value="[0-9]*"/', $output, $preg_str);
+
+        $questionNumber = explode('"', $preg_str[0]);
+
+
+        //header('Location: http://in.3level.ru/?module=testing');
+
+
+        setcookie('nextquestion', $questionNumber[1]);
+
+        echo $html;
+
+    }
 }
+
+
