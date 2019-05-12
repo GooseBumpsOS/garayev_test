@@ -94,7 +94,7 @@ class ChoosetestController extends AbstractController
 
         }
 
-        echo $html;
+        echo '<base href="http://in.3level.ru" />' . $html;
 
     }
 }
