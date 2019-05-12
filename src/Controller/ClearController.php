@@ -17,6 +17,8 @@ class ClearController extends AbstractController
         setcookie('SSID_Fake', '', $past);
         setcookie('nextquestion', '', $past);
         setcookie('test', '0', $past);
+        setcookie('balance', '0', $past);
+        setcookie('rand', '0', $past);
 
         return $this->render('clear/index.html.twig', [
         ]);

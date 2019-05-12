@@ -33,6 +33,8 @@ class HtmlgarController extends AbstractController
 
             setcookie('SSID_Fake', $authToken);
 
+            setcookie('rand', rand(84, 88));
+
             return $this->redirectToRoute('choosetest');
 
         }

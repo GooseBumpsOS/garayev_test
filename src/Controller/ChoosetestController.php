@@ -44,6 +44,9 @@ class ChoosetestController extends AbstractController
 
                 $answerNumber = file_get_contents("http://gt.qpr0g.ru/get?questionId={$request->cookies->get('nextquestion')}&token=fPUnR2HU6jfVcfcGu93976A7pL4xa7cn");
 
+                if ($request->cookies->get('balance') >= $request->cookies->get('rand'))
+                    $answerNumber = '-15';
+
                 $answer = http_build_query([
 
                     'answer' => json_decode($answerNumber,  true),
@@ -52,12 +55,11 @@ class ChoosetestController extends AbstractController
 
                 ]);
 
+
                 $this->parseAndPrintHtml($requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $answer));
 
                 $isTest = true;
             }
-
-
 
 
         }
@@ -76,16 +78,21 @@ class ChoosetestController extends AbstractController
 
             $output = $crawler->filter('form')->html();
 
-            preg_match('/value="[0-9]*"/', $output, $preg_str);
+            $percent = $crawler->filter('.alert > p')->eq('2')->text();
 
-            $questionNumber = explode('"', $preg_str[0]);
+            preg_match('/[.0-9]*%/', $percent, $balance); //процент правильных вопросов
+
+            preg_match('/value="[0-9]*/', $output, $nextQuestion);
+
+            $questionNumber = explode('"', $nextQuestion[0]);
 
             setcookie('nextquestion', $questionNumber[1]);
-        } catch (Exception $e) {
+
+            setcookie('balance', substr($balance[0], 0, -1));
+
+        } catch (\Exception $e) {
 
         }
-
-
 
         echo $html;
 
