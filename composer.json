@@ -25,7 +25,8 @@
         "symfony/validator": "4.2.*",
         "symfony/web-link": "4.2.*",
         "symfony/yaml": "4.2.*",
-      "ext-curl": "*"
+      "ext-curl": "*",
+      "ext-json": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

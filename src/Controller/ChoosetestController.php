@@ -42,17 +42,17 @@ class ChoosetestController extends AbstractController
 
             } else {
 
-                $answerNumber = file_get_contents("http://gt.qpr0g.ru/get?questionId={$request->request->get('nextquestion')}&token=fPUnR2HU6jfVcfcGu93976A7pL4xa7cn");
+                $answerNumber = file_get_contents("http://gt.qpr0g.ru/get?questionId={$request->cookies->get('nextquestion')}&token=fPUnR2HU6jfVcfcGu93976A7pL4xa7cn");
 
                 $answer = http_build_query([
 
-                    'answer' => $answerNumber,
-                    'current_question' => $request->request->get('nextquestion'),
+                    'answer' => json_decode($answerNumber,  true),
+                    'current_question' => $request->cookies->get('nextquestion'),
                     'submit_button' => 'Ответить',
 
                 ]);
 
-               $a = $this->parseAndPrintHtml($requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $answer));
+                $this->parseAndPrintHtml($requestsToGarSite->getHtml('http://in.3level.ru/?module=testing', $request->cookies->get('SSID_Fake'), $answer));
 
                 $isTest = true;
             }
