@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Services\RequestsToGarSite;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
@@ -70,19 +71,21 @@ class ChoosetestController extends AbstractController
 
     private function parseAndPrintHtml($html){
 
-        $crawler = new Crawler($html);
+        try {
+            $crawler = new Crawler($html);
 
-        $output = $crawler->filter('form')->html();
+            $output = $crawler->filter('form')->html();
 
-        preg_match('/value="[0-9]*"/', $output, $preg_str);
+            preg_match('/value="[0-9]*"/', $output, $preg_str);
 
-        $questionNumber = explode('"', $preg_str[0]);
+            $questionNumber = explode('"', $preg_str[0]);
+
+            setcookie('nextquestion', $questionNumber[1]);
+        } catch (Exception $e) {
+
+        }
 
 
-        //header('Location: http://in.3level.ru/?module=testing');
-
-
-        setcookie('nextquestion', $questionNumber[1]);
 
         echo $html;
 
