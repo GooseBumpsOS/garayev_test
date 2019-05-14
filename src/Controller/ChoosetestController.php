@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Allow;
 use App\Services\RequestsToGarSite;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,6 +19,8 @@ class ChoosetestController extends AbstractController
     {
         $isTest = false;
 
+        $em = $this->getDoctrine()->getManager()->getRepository(Allow::class);
+
         if (empty($request->cookies->get('SSID_Fake')))
            return $this->redirectToRoute('main');
 
@@ -26,6 +29,16 @@ class ChoosetestController extends AbstractController
         {
             if($request->cookies->get('test') != true)
             {
+                $allowTests =  $em->findOneBy([
+
+                    'UserName' => $request->cookies->get('username')
+
+                ])->getAllowTests();
+
+                $arrOfAllowTests = explode(',', $allowTests);
+
+                if (!in_array($request->request->get('test_id'), $arrOfAllowTests)) die('Этот тест вам не доступен');
+
                 setcookie('test', true);
 
                 $dataAboutTestChoice = http_build_query([

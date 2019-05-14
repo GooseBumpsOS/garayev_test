@@ -21,6 +21,27 @@ class Allow
      */
     private $UserName;
 
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $AllowTests;
+
+    /**
+     * @return mixed
+     */
+    public function getAllowTests()
+    {
+        return $this->AllowTests;
+    }
+
+    /**
+     * @param mixed $AllowTests
+     */
+    public function setAllowTests($AllowTests): void
+    {
+        $this->AllowTests = $AllowTests;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
