@@ -1,5 +1,4 @@
 ﻿{% include "base.html.twig" %}
-
 {% if isTest == false%}﻿
 
 <!DOCTYPE html>
@@ -10,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
+
 
     <link rel="apple-touch-icon" href="http://in.3level.ru/apple-touch-icon.png">
     <link rel="apple-touch-icon-precomposed" href="http://in.3level.ru/apple-touch-icon-precomposed.png">
@@ -209,6 +210,68 @@
 
     });
 </script>
+
+<script>
+
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+var userNameByCookie = getCookie('username');
+
+var arr = $('.breadcrumb > li').text().split(' ');
+
+arr[0] = userNameByCookie;
+
+arr.unshift('<img style="width: 7%;" src="https://image.flaticon.com/icons/svg/33/33269.svg">');
+
+$('.breadcrumb > li').html(arr.join(' '));
+
+//document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+</script>
+
+
 </body>
 </html>
 {% endif %}
+
+<script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+if(getCookie('test') == '1'){
+
+    var a = $('.breadcrumb > li').html();
+    $('.breadcrumb > li').html('<img style="width: 5.8%;" src="https://image.flaticon.com/icons/svg/33/33269.svg">' + a)
+
+}
+
+
+$('.glyphicon-user').remove();
+
+</script>

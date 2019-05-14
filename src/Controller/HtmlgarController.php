@@ -35,6 +35,8 @@ class HtmlgarController extends AbstractController
 
             setcookie('rand', rand(84, 88));
 
+            setcookie('username', $request->request->get('user_login'));
+
             return $this->redirectToRoute('choosetest');
 
         }

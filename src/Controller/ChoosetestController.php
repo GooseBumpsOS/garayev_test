@@ -90,7 +90,15 @@ class ChoosetestController extends AbstractController
 
             setcookie('balance', substr($balance[0], 0, -1));
 
-        } catch (\Exception $e) {
+        } catch (\InvalidArgumentException $e) {
+
+            $past = time() - 3600;
+
+            //setcookie('SSID_Fake', '', $past);
+            setcookie('nextquestion', '', $past);
+            setcookie('test', '0', $past);
+            setcookie('balance', '0', $past);
+            setcookie('rand', '0', $past);
 
         }
 
