@@ -60,6 +60,8 @@ class ChoosetestController extends AbstractController
                 if ($request->cookies->get('balance') >= $request->cookies->get('rand'))
                     $answerNumber = '-15';
 
+
+
                 $answer = http_build_query([
 
                     'answer' => json_decode($answerNumber,  true),
@@ -91,7 +93,10 @@ class ChoosetestController extends AbstractController
 
             $output = $crawler->filter('form')->html();
 
-            $percent = $crawler->filter('.alert > p')->eq('2')->text();
+            for ($i=0; $i<$crawler->filter('.alert > p')->count(); $i++)
+                $arr_of_alertHtmlTable[$i] = $crawler->filter('.alert > p')->eq($i)->text();
+
+            $percent = join( ' , ', $arr_of_alertHtmlTable);
 
             preg_match('/[.0-9]*%/', $percent, $balance); //процент правильных вопросов
 
