@@ -33,7 +33,7 @@ class HtmlgarController extends AbstractController
 
             setcookie('SSID_Fake', $authToken);
 
-            setcookie('rand', 10);
+            setcookie('rand', rand(84, 88));
 
             setcookie('username', $request->request->get('user_login'));
 
