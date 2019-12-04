@@ -29,15 +29,15 @@ class ChoosetestController extends AbstractController
         {
             if($request->cookies->get('test') != true)
             {
-                $allowTests =  $em->findOneBy([
+                //$allowTests =  $em->findOneBy([
 
-                    'UserName' => $request->cookies->get('username')
+                //    'UserName' => $request->cookies->get('username')
 
-                ])->getAllowTests();
+                //])->getAllowTests();
 
-                $arrOfAllowTests = explode(',', $allowTests);
+                //$arrOfAllowTests = explode(',', $allowTests);
 
-                if (!in_array($request->request->get('test_id'), $arrOfAllowTests)) die('Этот тест вам не доступен');
+                //if (!in_array($request->request->get('test_id'), $arrOfAllowTests)) die('Этот тест вам не доступен');
 
                 setcookie('test', true);
 
